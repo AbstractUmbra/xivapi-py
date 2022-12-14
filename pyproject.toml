@@ -1,0 +1,32 @@
+[tool.black]
+line-length = 125
+target-version = ["py37"]
+
+[tool.isort]
+profile = "black"
+src_paths = ["mystbin"]
+lines_after_imports = 2
+
+[tool.pyright]
+include = ["pyxivapi/**/*.py"]
+useLibraryCodeForTypes = true
+typeCheckingMode = "basic"
+pythonVersion = "3.7"
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+strictParameterNoneValue = true
+reportMissingImports = "error"
+reportUnusedImport = "error"
+reportUnusedClass = "error"
+reportUnusedFunction = "error"
+reportUnusedVariable = "error"
+reportUnusedExpression = "error"
+reportGeneralTypeIssues = "error"
+reportDuplicateImport = "error"
+reportUntypedFunctionDecorator = "error"
+reportUnnecessaryTypeIgnoreComment = "warning"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
