@@ -36,6 +36,7 @@ jobs:
           PY_VER: "${{ matrix.python-version }}"
         run: |
           pip install -U -r requirements.txt
+          pip install -U .
 
       - uses: actions/setup-node@v3
         with:
