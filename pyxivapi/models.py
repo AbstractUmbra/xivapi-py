@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 from typing import ClassVar, List
 
 from .exceptions import XIVAPIInvalidFilter
@@ -33,6 +32,12 @@ class Filter:
     Model class for DQL filters
     """
 
+    __slots__ = (
+        "field",
+        "comparison",
+        "value",
+    )
+
     comparisons: ClassVar[List[str]] = ["gt", "gte", "lt", "lte"]
 
     def __init__(self, field: str, comparison: str, value: int) -> None:
@@ -41,9 +46,9 @@ class Filter:
         if comparison not in self.comparisons:
             raise XIVAPIInvalidFilter(f'"{comparison}" is not a valid DQL filter comparison.')
 
-        self.field = field
-        self.comparison = comparison
-        self.value = value
+        self.field: str = field
+        self.comparison: str = comparison
+        self.value: int = value
 
 
 class Sort:
@@ -51,6 +56,11 @@ class Sort:
     Model class for sort field
     """
 
+    __slots__ = (
+        "field",
+        "ascending",
+    )
+
     def __init__(self, field: str, ascending: bool) -> None:
-        self.field = field
-        self.ascending = ascending
+        self.field: str = field
+        self.ascending: bool = ascending
